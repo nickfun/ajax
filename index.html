@@ -7,8 +7,13 @@
 		<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.8.23/jquery-ui.min.js"></script>
 		<style type="text/css">
 		#errorbox {
-			font-color: red;
+			color: red;
 			font-weight: bold;
+		}
+		#output { 
+			border: 1px solid black;
+			padding: 1em;
+			margin: 1em;
 		}
 		</style>
 	</head>
@@ -32,12 +37,18 @@
 
 		<script type="text/javascript">
 			function myClick() {
-				value = $('#input').val();
-				$('#output').append('<p>' + value + '</p>' );
+				var input = $('#input').val();
+				var url = 'http://localhost/data.php/number/' + input;
+
+				$.getJSON(url, function(data) {
+					$('#output').append('<p>' + data.answer + '</p>');
+				});
+
+//				$('#output').append('<p>' + input + '</p>' );
 				$('#input').val('');
 				$('#input').focus();
-
-			});
+				return false;
+			}
 
 			$('#mybutton').click( myClick );
 			$('#inputForm').submit( myClick );

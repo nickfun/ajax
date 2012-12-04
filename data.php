@@ -13,7 +13,8 @@ function intToString( $x ) {
 		3 	=> 'three',
 		4 	=> 'four',
 		5 	=> 'five',
-		6 	=> 'seven',
+		6 	=> 'six',
+		7 	=> 'seven',
 		8 	=> 'eight',
 		9	=> 'nine',
 		10	=> 'ten',
@@ -35,6 +36,10 @@ function intToString( $x ) {
 		80	=> 'eighty',
 		90	=> 'nintey',
 	);
+
+	if( isset($words[$x]) ) {
+		return $words[$x];
+	}
 
 	if( $x <= 20 ) {
 		return $words[$x];
@@ -63,7 +68,7 @@ function intToString( $x ) {
 		$first = intval($first);
 		$last  = intval($last);
 
-		return intToString($first) . " thousand " . intToString($last);
+		return intToString($first) . " thousand and " . intToString($last);
 	}
 
 	return 'Number too big';
