@@ -5,9 +5,43 @@
 		<meta charset="utf-8">
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js" type="text/javascript"></script>
 		<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.8.23/jquery-ui.min.js"></script>
+		<style type="text/css">
+		#errorbox {
+			font-color: red;
+			font-weight: bold;
+		}
+		</style>
 	</head>
 	<body>
 		<h1>Hello</h1>
 		<p>Welcome to my website.</p>
+		<p><a href="index.html">Home</a></p>
+
+		<form id='inputForm'>
+			<input type="text" id="input">
+			<input type="button" id="mybutton" value="Click!">
+		</form>
+
+		<div id="errorbox"></div>
+
+		<div id="output">
+			<p><strong>Output:</strong></p>
+		</div>
+
+		<p>Type an integer into the box, I will write it out.</p>
+
+		<script type="text/javascript">
+			function myClick() {
+				value = $('#input').val();
+				$('#output').append('<p>' + value + '</p>' );
+				$('#input').val('');
+				$('#input').focus();
+
+			});
+
+			$('#mybutton').click( myClick );
+			$('#inputForm').submit( myClick );
+		</script>
+
 	</body>
 </html>
