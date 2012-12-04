@@ -78,6 +78,7 @@ $app->get('/number/:num', function($num) use ($app) {
 	$num = intval($num);
 	$result = array(
 		'answer'	=> ucwords(intToString($num)),
+		'input'		=> $num,
 	);
 	$response = $app->response();
 
