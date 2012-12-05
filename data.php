@@ -37,13 +37,14 @@ function intToString( $x ) {
 		90	=> 'nintey',
 	);
 
+	if( $x < 0 ) {
+		return 'Negative ' . intToString( -1 * $x );
+	}
+
 	if( isset($words[$x]) ) {
 		return $words[$x];
 	}
 
-	if( $x <= 20 ) {
-		return $words[$x];
-	}
 
 	if( $x <= 99 ) {
 		// get the ones
