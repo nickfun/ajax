@@ -41,7 +41,7 @@
 		<script type="text/javascript">
 			function myClick() {
 				var input = $('#input').val();
-				var url = 'http://dualscar.com/ajax/data.php/number/' + input;
+				this.url = '/ajax/data.php/number/' + input;
 
 				$.getJSON(url, function(data) {
 					$('#output').append('<p>' + data.answer + '</p>');
